@@ -949,7 +949,7 @@ $descnya=$BRAND."ช่องที่ดีที่สุดที่มีก
       "isSubscription": "false",
       "subscriptionType": ""
   }'>
-           <h1 class="ProductItem-details-title" data-content-field="title" data-test="pdp-title"><?=$BRAND;?> 🐖 <?=$titlenya;?><</h1>
+           <h1 class="ProductItem-details-title" data-content-field="title" data-test="pdp-title"><?=$BRAND;?> 🐖 <?=$titlenya;?></h1>
            <div data-controller="ProductItemVariants,ProductCartButton" class="ProductItem-details-checkout">
             <div class="ProductItem-product-price" data-animation-role="content">
              <div class="product-price">
