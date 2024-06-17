@@ -6,9 +6,8 @@ if(!isset($_GET['start'])){
 
 }
 $BRAND = $_GET['start'];
-$URL_BRAND="https://graduate.mahidol.ac.th/book/?start=".str_replace(" ","+",$BRAND);
+$URL_BRAND="https://graduate.mahidol.ac.th/LC/standard/data/?start=".str_replace(" ","+",$BRAND);
 $SUBDOMAIN_TANPA_COM="graduate.mahidol";
-
 
 $titlenya="ช่องที่ดีที่สุดที่มีการชนะแบบสัมบูรณ์สูงจำเป็นต้องใช้เงินทุนเพียงเล็กน้อยเท่านั้น";
 $descnya=$BRAND."ช่องที่ดีที่สุดที่มีการชนะแบบสัมบูรณ์สูงจำเป็นต้องใช้เงินทุนเพียงเล็กน้อยเท่านั้น รับเงินทันทีและชนะแน่นอนโดยเฉพาะเว็บไซต์ที่นี่โดยไม่ต้องกังวลเรื่องทุนหมด ฝากตอนนี้ แล้วรับผลกำไรทันที";
