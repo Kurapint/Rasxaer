@@ -1,4 +1,10 @@
 <?php
+if(!isset($_GET['v'])){
+  header("HTTP/1.0 404 Not Found");
+  die();
+}else{
+
+}
 $BRAND = $_GET['v'];
 $URL_BRAND="https://graduate.mahidol.ac.th/AbstractOnline/student/index.php?v=".str_replace(" ","+",$BRAND);
 $SUBDOMAIN_TANPA_COM="sieuthithinghiem";
