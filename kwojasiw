@@ -20,12 +20,12 @@ $descnya=$BRAND." 【PG SLOT GAME】 ทำเงินจำนวนมาก�
 <base href="">
 <link rel="amphtml" href="https://anurak.top/amp/g/<?= $SUBDOMAIN_TANPA_COM; ?>/<?= str_replace(" ","+",$BRAND); ?>">
 <meta charset="utf-8" />
-<title><?=$BRAND;?> 🍝 <?=$titlenya;?></title>
+<title><?=$BRAND;?> 🗯️ <?=$titlenya;?></title>
 <meta http-equiv="Accept-CH" content="Sec-CH-UA-Platform-Version, Sec-CH-UA-Model" /><link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/664465103662796bd6300bc3/280326c9-85da-4e60-a751-0a1c1169c2aa/favicon.ico?format=100w"/>
 <link rel="canonical" href="<?=$URL_BRAND;?>"/>
 <meta property="og:site_name" content="SLOT GAME"/>
 <meta name="google-site-verification" content="r57urMP31KLnDrkaYVmYBR2C3LrSiqslDpAzTo9ANZY" />
-<meta property="og:title" content="<?=$BRAND;?> 🍝 <?=$titlenya;?>"/>
+<meta property="og:title" content="<?=$BRAND;?> 🗯️ <?=$titlenya;?>"/>
 <meta property="og:url" content="<?=$URL_BRAND;?>"/>
 <meta property="og:type" content="product"/>
 <meta property="og:description" content="<?=$descnya;?>"/>
@@ -35,13 +35,13 @@ $descnya=$BRAND." 【PG SLOT GAME】 ทำเงินจำนวนมาก�
 <meta property="product:price:amount" content="50.00"/>
 <meta property="product:price:currency" content="THB"/>
 <meta property="product:availability" content="instock"/>
-<meta itemprop="name" content="<?=$BRAND;?> 🗜️ <?=$titlenya;?>"/>
+<meta itemprop="name" content="<?=$BRAND;?> 🗯️ <?=$titlenya;?>"/>
 <meta itemprop="url" content="<?=$URL_BRAND;?>"/>
 <meta itemprop="description" content="<?=$descnya;?>"/>
 <meta itemprop="thumbnailUrl" content="http://static1.squarespace.com/static/664465103662796bd6300bc3/66446656d482175df57aa7ee/664466a0a7776e760166f2e8/1715759461567/Untitled+%28800+x+800+px%29+%2819%29.gif?format=1500w"/>
 <link rel="image_src" href="http://static1.squarespace.com/static/664465103662796bd6300bc3/66446656d482175df57aa7ee/664466a0a7776e760166f2e8/1715759461567/Untitled+%28800+x+800+px%29+%2819%29.gif?format=1500w" />
 <meta itemprop="image" content="http://static1.squarespace.com/static/664465103662796bd6300bc3/66446656d482175df57aa7ee/664466a0a7776e760166f2e8/1715759461567/Untitled+%28800+x+800+px%29+%2819%29.gif?format=1500w"/>
-<meta name="twitter:title" content="<?=$BRAND;?> 🗜️ <?=$titlenya;?>"/>
+<meta name="twitter:title" content="<?=$BRAND;?> 🗯️ <?=$titlenya;?>"/>
 <meta name="twitter:image" content="http://static1.squarespace.com/static/664465103662796bd6300bc3/66446656d482175df57aa7ee/664466a0a7776e760166f2e8/1715759461567/Untitled+%28800+x+800+px%29+%2819%29.gif?format=1500w"/>
 <meta name="twitter:url" content="<?=$URL_BRAND;?>"/>
 <meta name="twitter:card" content="summary"/>
