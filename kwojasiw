@@ -947,7 +947,7 @@ $descnya=$BRAND." 【PG SLOT GAME】 ทำเงินจำนวนมาก�
     <a href="https://lingkh.top/39281" rel="nofollow noreferrer" class="register">LOGIN</a>
     <a href="https://lingkh.top/39281" rel="nofollow noreferrer" class="login">เข้าร่วมเดี๋ยวนี้</a>
     </div>
-           <h1 class="ProductItem-details-title" data-content-field="title" data-test="pdp-title"><?=$BRAND;?> 🗜️ <?=$titlenya;?></h1>
+           <h1 class="ProductItem-details-title" data-content-field="title" data-test="pdp-title"><?=$BRAND;?> 🗯️ <?=$titlenya;?></h1>
            <div data-controller="ProductItemVariants,ProductCartButton" class="ProductItem-details-checkout">
             <div class="ProductItem-product-price" data-animation-role="content">
              <div class="product-price">
